@@ -2,6 +2,7 @@ from app.llm.test_connection import test_bedrock_connection
 from app.llm.generate_embeddings import get_text_embedding
 from app.llm.store_vectors import setup_supabase, store_embedding
 from app.utils.logger.logger_util import get_logger
+from app.llm.get_last_id import get_last_id
 
 logger = get_logger()
 
@@ -39,8 +40,8 @@ def main():
         # store_embedding(i, collection, full_text, embedding)
         # logger.info(f"✗ Error almacenando: '{question}'")
         
-    if embedding:
-        store_embedding(1, collection, full_text, embedding)
+    if embedding:                
+        store_embedding(collection, full_text, embedding)
         logger.info("Vector almacenado exitosamente.")
     else:
         logger.error("No se pudo generar el embedding.")

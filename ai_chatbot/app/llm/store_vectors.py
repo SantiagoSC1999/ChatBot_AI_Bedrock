@@ -23,10 +23,11 @@ def setup_supabase():
         logger.error(f" Error con Supabase: {str(e)}")
            # return None
 
-def store_embedding(i, collection, text: str, embedding: list):
-    try:        
+def store_embedding(collection, text: str, embedding: list):
+    try:   
+        new_id = str(uuid.uuid4())     
         collection.upsert(
-            records=[(i, embedding, {"text": text})]
+            records=[(new_id, embedding, {"text": text})]
         )
         print(f"✓ Vector almacenado para: '{text}...'")
     except Exception as e:
