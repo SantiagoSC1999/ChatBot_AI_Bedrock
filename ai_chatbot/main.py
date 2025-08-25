@@ -1,6 +1,7 @@
 from app.llm.chat_model import chat_with_model
 from app.llm.generate_embeddings import get_text_embedding
-from app.llm.store_vectors import setup_supabase, store_embedding
+from app.llm.store_vectors import store_embedding
+from app.llm.setup_supabase import setup_supabase
 from app.llm.test_connection import test_bedrock_connection
 from app.utils.logger.logger_util import get_logger
 import sys
@@ -23,7 +24,8 @@ def chat_mode():
             continue
             
         try:
-            response = chat_with_model(prompt=user_input)
+            # response = chat_with_model(user_input)
+            response = chat_with_model(user_input, use_rag=True)
             print(f"\nAssistant: {response}")
         except Exception as e:
             logger.error(f"Error in chat: {str(e)}")
@@ -39,9 +41,6 @@ def embedding_mode():
     
     # 2. Setup Supabase
     collection = setup_supabase()
-    if not collection:
-        logger.error("Failed to setup Supabase connection")
-        return
     
     print("\nWelcome to Embedding Mode!")
     print("Enter Q&A pairs to generate embeddings (type 'done' to finish)")
