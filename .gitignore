@@ -3,6 +3,7 @@ venv/
 
 # Variables de entorno
 .env
+.ai_chatbot.zip
 
 # Archivos de caché de Python
 __pycache__/
