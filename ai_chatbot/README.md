@@ -94,7 +94,7 @@ SUPABASE_COLLECTION=your_collection_name
 
 ```bash
 git clone <repository>
-cd prms-chatbot
+cd ai_support_chatbot
 python -m venv .venv
 source .venv/bin/activate  # Linux/Mac
 # or
