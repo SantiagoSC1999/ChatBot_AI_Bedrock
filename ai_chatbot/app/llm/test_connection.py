@@ -18,7 +18,7 @@ def test_bedrock_connection():
             print("✅ Conexión con Bedrock establecida correctamente")
             return True
         else:
-            print("Modelo Titan Embed no disponible")
+            print("Titan Embed Model no available")
             return False
     except Exception as e:
         print(f"❌ Error conectando a Bedrock: {str(e)}")

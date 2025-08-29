@@ -18,7 +18,7 @@ bedrock_client = boto3.client(
 )
 
 def get_relevant_context(query, collection, top_k=3):
-    """Buscar contexto relevante en Supabase usando RAG"""
+    """Seach relevant context usin RAG"""
     try:
         query_embedding = get_text_embedding(query)
         if not query_embedding:

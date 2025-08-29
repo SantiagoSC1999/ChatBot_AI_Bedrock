@@ -15,7 +15,7 @@ def store_embedding(collection, text: str, embedding: list):
         collection.upsert(
             records=[(new_id, embedding, {"text": text})]
         )
-        print(f"✓ Vector almacenado para: '{text}...'")
+        print(f"✓ Vector saved: '{text}...'")
     except Exception as e:
-        print(f"Error almacenando vector: {str(e)}")
+        print(f"Error saving vector: {str(e)}")
 
