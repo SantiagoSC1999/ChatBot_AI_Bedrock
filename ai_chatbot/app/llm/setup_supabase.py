@@ -27,7 +27,7 @@ def setup_supabase():
             # El índice ya puede existir
             pass
 
-        logger.info(f"Colección '{COLLECTION_NAME}' obtenida exitosamente")
+        logger.info(f"Collection '{COLLECTION_NAME}' successfully retrieved")
         return collection
         
     except Exception as e:
